@@ -1,6 +1,7 @@
 package com.chriskaras.mycalorietracker.features.onboarding.components
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -37,7 +38,7 @@ fun ActionButton(
         Text(
             text = buttonText,
             style = textStyle,
-
+            modifier = Modifier.padding(spacing.spacingExtraSmall)
         )
 
 
