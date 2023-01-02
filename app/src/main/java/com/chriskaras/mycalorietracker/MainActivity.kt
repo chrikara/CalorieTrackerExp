@@ -1,9 +1,11 @@
 package com.chriskaras.mycalorietracker
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -24,11 +26,13 @@ import com.chriskaras.mycalorietracker.features.onboarding.composables.weight.We
 import com.chriskaras.mycalorietracker.util.navigate.Route
 import com.chriskaras.mycalorietracker.ui.theme.MyCalorieTrackerTheme
 import com.chriskaras.mycalorietracker.features.onboarding.composables.welcome.WelcomeScreen
+import com.chriskaras.mycalorietracker.features.tracker.presentation.tracker_overview.TrackerOverviewScreen
 import com.chriskaras.mycalorietracker.util.navigate.navigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +49,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(
                         navController = navController,
-                        startDestination = Route.NUTRIENT_GOAL){
+                        startDestination = Route.TRACKER_OVERVIEW){
 
                         composable(Route.WELCOME){
                             WelcomeScreen(onNavigate = navController::navigate)
@@ -90,7 +94,9 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW){
-
+                            TrackerOverviewScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                     }
                 }

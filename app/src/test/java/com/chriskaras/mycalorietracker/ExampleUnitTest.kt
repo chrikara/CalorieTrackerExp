@@ -12,6 +12,21 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        var i = 0
+
+        val list = mutableListOf<Int>(1,2,3,4,5,6)
+
+        for (index in 0 until list.size){
+            println(list[index] == 3)
+            if(list[index] == 3){
+                i = index
+                break
+            } else {
+                i= -1
+            }
+        }
+
+        println(i)
+
     }
 }
