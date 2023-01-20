@@ -32,7 +32,7 @@ fun UnitDisplayTracker(
             color = amountColor,
             modifier = Modifier.alignBy(LastBaseline)
         )
-        Spacer(modifier = Modifier.width(spacing.spacingSmall))
+        Spacer(modifier = Modifier.width(spacing.spaceSmall))
         Text(
             text = unit,
             style = MaterialTheme.typography.displayLarge,

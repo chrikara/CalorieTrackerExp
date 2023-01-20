@@ -57,7 +57,7 @@ class SearchViewModel @Inject constructor(
                 )
             }
             is SearchEvent.OnSearch -> {
-
+                executeSearch()
             }
             is SearchEvent.OnSearchFocusChange -> {
                 state = state.copy(

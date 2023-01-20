@@ -2,7 +2,6 @@ package com.chriskaras.mycalorietracker.features.tracker.presentation.tracker_ov
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,13 +11,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.annotation.ExperimentalCoilApi
-import com.chriskaras.mycalorietracker.R
 import com.chriskaras.mycalorietracker.features.tracker.domain.model.MealType
 import com.chriskaras.mycalorietracker.features.tracker.domain.model.TrackedFood
 import com.chriskaras.mycalorietracker.features.tracker.presentation.components.DaySelector
@@ -41,6 +38,15 @@ fun TrackerOverviewScreen(
     val context = LocalContext.current
     val state = viewModel.statee
 
+    LaunchedEffect(key1 = true){
+        viewModel.uiEvent.collect{ event ->
+            when(event){
+                is UiEvent.Navigate -> onNavigate(event)
+                else -> Unit
+            }
+        }
+    }
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -54,19 +60,7 @@ fun TrackerOverviewScreen(
                 onPreviousDayClick = {viewModel.onEvent(TrackerOverviewEvent.OnPreviousDayClick)},
                 onNextDayClick = { viewModel.onEvent(TrackerOverviewEvent.OnNextDayClick) }
             )
-            TrackedFoodItem(trackedFood = TrackedFood(
 
-                name = "Salmon",
-                carbs = 100,
-                protein = 100,
-                fat = 100,
-                calories = 1700,
-                imageUrl = "",
-                mealType = MealType.fromString("breakfast"),
-                amount = 2,
-                date = LocalDate.now()
-            ) , onDeleteClick = {   },
-            modifier = Modifier.fillMaxWidth())
 
         }
 
@@ -78,7 +72,7 @@ fun TrackerOverviewScreen(
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = spacing.spacingSmall)
+                            .padding(horizontal = spacing.spaceSmall)
                     ) {
                         state.trackedFoods.forEach { food ->
                             TrackedFoodItem(
@@ -90,7 +84,7 @@ fun TrackerOverviewScreen(
                                     )
                                 }
                             )
-                            Spacer(modifier = Modifier.height(spacing.spacingMedium))
+                            Spacer(modifier = Modifier.height(spacing.spaceMedium))
                         }
                         AddButton(
                             text = "Βάλε ${meal.name.asString(context)}",

@@ -40,14 +40,14 @@ fun ExpandableMeal(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { onToggleClick() }
-                .padding(spacing.spacingMedium),
+                .padding(spacing.spaceMedium),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
                 painter = painterResource(id = meal.drawableRes),
                 contentDescription = meal.name.asString(context)
             )
-            Spacer(modifier = Modifier.width(spacing.spacingMedium))
+            Spacer(modifier = Modifier.width(spacing.spaceMedium))
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -84,13 +84,13 @@ fun ExpandableMeal(
                             amount = meal.carbs,
                             unit = "g"
                         )
-                        Spacer(modifier = Modifier.width(spacing.spacingSmall))
+                        Spacer(modifier = Modifier.width(spacing.spaceSmall))
                         NutrientInfo(
                             name = "protein",
                             amount = meal.protein,
                             unit = "g"
                         )
-                        Spacer(modifier = Modifier.width(spacing.spacingSmall))
+                        Spacer(modifier = Modifier.width(spacing.spaceSmall))
                         NutrientInfo(
                             name = "fat",
                             amount = meal.fat,
@@ -100,7 +100,7 @@ fun ExpandableMeal(
                 }
             }
         }
-        Spacer(modifier = Modifier.height(spacing.spacingMedium))
+        Spacer(modifier = Modifier.height(spacing.spaceMedium))
         AnimatedVisibility(visible = meal.isExpanded) {
             content()
         }

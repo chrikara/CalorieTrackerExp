@@ -1,6 +1,5 @@
 package com.chriskaras.mycalorietracker.features.onboarding.composables.gender
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,14 +16,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.chriskaras.mycalorietracker.features.onboarding.components.ActionButton
 import com.chriskaras.mycalorietracker.features.onboarding.components.SelectableButton
 import com.chriskaras.mycalorietracker.model.Gender
 import com.chriskaras.mycalorietracker.ui.theme.LocalSpacing
 import com.chriskaras.mycalorietracker.util.UiEvent
-import com.chriskaras.mycalorietracker.util.navigate.Route
 
 
 @Composable
@@ -48,7 +45,7 @@ fun GenderScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(spacing.spacingExtraLarge),
+            .padding(spacing.spaceExtraSmall),
         contentAlignment = Alignment.Center
     ){
         Column(
@@ -63,7 +60,7 @@ fun GenderScreen(
                 style = MaterialTheme.typography.displayLarge
             )
 
-            Spacer(modifier = Modifier.height(spacing.spacingExtraLarge))
+            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center,
@@ -76,7 +73,7 @@ fun GenderScreen(
                     onClick = { viewModel.onGenderClick(Gender.Male) },
                     isEnabled = viewModel.selectedGender == Gender.Male
                 )
-                Spacer(modifier = Modifier.width(LocalSpacing.current.spacingExtraLarge))
+                Spacer(modifier = Modifier.width(LocalSpacing.current.spaceExtraSmall))
 
                 SelectableButton(
                     text = "Female",

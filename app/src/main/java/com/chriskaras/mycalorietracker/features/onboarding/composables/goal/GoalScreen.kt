@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.chriskaras.mycalorietracker.features.onboarding.components.ActionButton
 import com.chriskaras.mycalorietracker.features.onboarding.components.SelectableButton
-import com.chriskaras.mycalorietracker.model.ActivityLevel
 import com.chriskaras.mycalorietracker.model.GoalType
 import com.chriskaras.mycalorietracker.ui.theme.LocalSpacing
 import com.chriskaras.mycalorietracker.util.UiEvent
@@ -55,7 +54,7 @@ fun GoalScreen(
                 text = "What is your goal?",
                 style = MaterialTheme.typography.displayLarge
             )
-            Spacer(modifier = Modifier.height(spacing.spacingExtraLarge))
+            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly,

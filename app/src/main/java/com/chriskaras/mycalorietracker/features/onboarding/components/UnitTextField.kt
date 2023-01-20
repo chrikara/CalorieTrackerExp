@@ -42,7 +42,7 @@ fun UnitTextField(
                 .width(IntrinsicSize.Min) // Equivalent to Wrap Content
                 .alignBy(LastBaseline) // Puts both texts at the bottom of the row
         )
-        Spacer(modifier = Modifier.width(spacing.spacingSmall))
+        Spacer(modifier = Modifier.width(spacing.spaceSmall))
         Text(
             text = unit,
             modifier = Modifier.alignBy(LastBaseline)

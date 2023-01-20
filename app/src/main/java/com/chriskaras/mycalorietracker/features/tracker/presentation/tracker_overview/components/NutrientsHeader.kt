@@ -3,12 +3,9 @@ package com.chriskaras.mycalorietracker.features.tracker.presentation.tracker_ov
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -50,7 +47,7 @@ fun NutrientsHeader(
             .background(MaterialTheme.colorScheme.secondary)
             .padding(
                 horizontal = spacing.spacingLarge,
-                vertical = spacing.spacingExtraLarge
+                vertical = spacing.spaceExtraSmall
             )
     ) {
         Row(
@@ -80,7 +77,7 @@ fun NutrientsHeader(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(spacing.spacingSmall))
+        Spacer(modifier = Modifier.height(spacing.spaceSmall))
         NutrientsBar(
             carbs = state.totalCarbs,
             protein = state.totalProtein,
@@ -91,7 +88,7 @@ fun NutrientsHeader(
                 .fillMaxWidth()
                 .height(30.dp)
         )
-        Spacer(modifier = Modifier.height(spacing.spacingExtraLarge))
+        Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween

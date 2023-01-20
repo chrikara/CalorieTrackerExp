@@ -46,7 +46,7 @@ fun TrackedFoodItem(
                 shape = RoundedCornerShape(5.dp)
             )
             .background(MaterialTheme.colorScheme.surface)
-            .padding(end = spacing.spacingMedium)
+            .padding(end = spacing.spaceMedium)
             .height(100.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
@@ -72,7 +72,7 @@ fun TrackedFoodItem(
                     )
                 )
         )
-        Spacer(modifier = Modifier.width(spacing.spacingMedium))
+        Spacer(modifier = Modifier.width(spacing.spaceMedium))
         Column(
             modifier = Modifier.weight(1f)
         ) {
@@ -92,7 +92,7 @@ fun TrackedFoodItem(
                 style = MaterialTheme.typography.displayMedium
             )
         }
-        Spacer(modifier = Modifier.width(spacing.spacingMedium))
+        Spacer(modifier = Modifier.width(spacing.spaceMedium))
         Column(
             modifier = Modifier.fillMaxHeight(),
             verticalArrangement = Arrangement.Center
@@ -105,7 +105,7 @@ fun TrackedFoodItem(
                 contentDescription = ""
             )
 
-            Spacer(modifier = Modifier.height(spacing.spacingSmall))
+            Spacer(modifier = Modifier.height(spacing.spaceSmall))
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -117,7 +117,7 @@ fun TrackedFoodItem(
                     unitTextSize = 12.sp,
                     nameTextStyle = MaterialTheme.typography.displayMedium
                 )
-                Spacer(modifier = Modifier.width(spacing.spacingSmall))
+                Spacer(modifier = Modifier.width(spacing.spaceSmall))
                 NutrientInfo(
                     name = "protein",
                     amount = trackedFood.protein,
@@ -126,7 +126,7 @@ fun TrackedFoodItem(
                     unitTextSize = 12.sp,
                     nameTextStyle = MaterialTheme.typography.displayMedium
                 )
-                Spacer(modifier = Modifier.width(spacing.spacingSmall))
+                Spacer(modifier = Modifier.width(spacing.spaceSmall))
                 NutrientInfo(
                     name = "fat",
                     amount = trackedFood.fat,

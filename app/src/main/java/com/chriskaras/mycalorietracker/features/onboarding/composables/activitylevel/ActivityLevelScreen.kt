@@ -54,7 +54,7 @@ fun ActivityLevelScreen(
                 text = "What is your activity level?",
                 style = MaterialTheme.typography.displayLarge
             )
-            Spacer(modifier = Modifier.height(spacing.spacingExtraLarge))
+            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly,
